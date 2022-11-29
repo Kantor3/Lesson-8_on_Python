@@ -159,8 +159,8 @@ def select_who(operation=None):
 # 8. Выбор формата файла - выгрузки (CSV, txt или JSON)
 def select_format(available=None, default=None):
     print()
-    format_sel = get_input(available, default=default,
-                           type_input=tuple, txt='Выберите формат выгрузки данных', end='-q')
+    format_sel = get_input(available, default=default, type_input=tuple,
+                           txt='Выберите формат выгрузки данных', end='-q')
     return format_sel
 
 
@@ -183,7 +183,8 @@ def set_load_param(def_method=None, def_namefile=None):    # method = '-r' - п�
               '     "-u" - только обновление изменений, имеющихся в базе, контактов\n'
               '     "-f" - обновить, что можно, по максимуму \n'
               '     "-r" - полностью заместить данные загруженными')
-        method = get_input(methods, default='-f', type_input=tuple, txt='Введите способ загрузки данных', end='-q')
+        method = get_input(methods, default='-f', type_input=tuple,
+                           txt='Введите способ загрузки данных', end='-q')
     else:
         method = def_method
 

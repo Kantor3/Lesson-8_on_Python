@@ -31,14 +31,17 @@ def main():
                 select_item = None
                 continue
 
-        print(f'выбран пункт {select_item} - [{MENU_ACTIONS[select_item][0]}]')
-        input_data = MENU_ACTIONS[select_item][1](select_item)
+        opt_params = [*MENU_ACTIONS[select_item], None][:3]
+        opt_name, opt_input, opt_action = opt_params
 
-        if input_data:                             # если 1-й метод возвращает данные для 2-го метода
-            if isinstance(input_data, tuple):      # если данные не список, операция на этом завершена
+        print(f'выбран пункт {select_item} - [{opt_name}]')
+        input_data = opt_input(select_item)
+
+        if input_data:                                          # если 1-й метод возвращает данные для 2-го метода
+            if isinstance(input_data, tuple):                   # если данные не список, операция на этом завершена
                 returns = input_data
-            else:                                  # иначе - запускаем переданный метод, в который
-                returns = MENU_ACTIONS[select_item][2](input_data)  # передаем полученные данные
+            else:                                               # иначе - запускаем переданный метод, в который
+                returns = opt_action(input_data)                # передаем полученные данные
         else:
             returns = input_data, None
 

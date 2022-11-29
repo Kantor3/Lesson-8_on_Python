@@ -184,7 +184,8 @@ def slice_by_fields(records, fields):
 def typing_by_fields(records, structure):
     fields, types = (structure.keys(), structure.values()) if isinstance(structure, dict) else structure
     types_by_fields = dict([(item[0], item[1]) for item in zip(fields, types)])
-    return [dict([(k, v if types_by_fields[k] == str else eval(v)) for k, v in staff_in.items()]) for staff_in in records]
+    return [dict([(k, v if types_by_fields[k] == str else eval(v))
+                  for k, v in staff_in.items()]) for staff_in in records]
 
 
 """

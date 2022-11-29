@@ -31,7 +31,8 @@ def add_db(records, db, structure, uniq=True):
         records = [dict([(k, v) for k, v in zip(structure[1:], record)]) for record in records]
 
     for record in records:  # Для каждой записи переданного пакета. Если запись уже с id - "отрезаем" ее
-        record_short = record if len(record) < len(structure) else dict([el for el in tuple(record.items())[1:]])
+        record_short = record if len(record) < len(structure) else \
+                       dict([el for el in tuple(record.items())[1:]])
 
         if uniq and where(record_short, db): continue  # добавляемая запись не может совпадать с к-л в БД
 
