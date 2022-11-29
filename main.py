@@ -17,7 +17,7 @@
     id
     fio
     tel
-    post
+    pos
     department
 
 Отдел организацииЖ
