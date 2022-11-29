@@ -1,5 +1,4 @@
 import csv
-# from my_lib import *
 from models import *
 from ui.ui_view import select_format, set_load_param
 
